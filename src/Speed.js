@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Container, FormControl, Input, Select } from '@chakra-ui/react'
-import { m } from 'framer-motion'
+import { Box, Button, Center, chakra, Container, FormControl, Input, Select, SimpleGrid } from '@chakra-ui/react'
+
 
 const speedOpt = [
     {value:"kmh",label:"Kilometer per Hour"},
@@ -119,19 +119,24 @@ export default function Speed(){
     })
 
     return(
-        <div>
-            <Container>
-                <FormControl>
-                    <Input type="number" onChange={getFromValue}/>
-                    <Select placeholder="From" onChange={getFrom}>
-                        {optSpeed}
-                    </Select>
-                    <Input type="number" value={resultSpeed}/>
-                    <Select placeholder="To" onChange={getTo}>
-                        {optSpeed}
-                    </Select>
-                </FormControl>
-            </Container>
-        </div>
+        <Container>
+            <Center><chakra.h1 fontSize="40px">Speed</chakra.h1></Center>
+            <FormControl>
+                <SimpleGrid columns={2} spacing={10}>
+                    <Box w="200px">
+                        <Input w="100%" type="number" onChange={getFromValue}/>
+                        <Select placeholder="From" onChange={getFrom}>
+                            {optSpeed}
+                        </Select>
+                    </Box>
+                    <Box w="200px">
+                        <Input type="number" value={resultSpeed}/>
+                        <Select placeholder="To" onChange={getTo}>
+                            {optSpeed}
+                        </Select>
+                    </Box>
+                </SimpleGrid>
+            </FormControl>
+        </Container>
     )
 }

@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { FormControl, Input, Container, Select, Button, SimpleGrid, Box } from '@chakra-ui/react'
+import { FormControl, Input, Container, Select, Button, SimpleGrid, Box, chakra, Center } from '@chakra-ui/react'
 
 function CelToFah(angka){
     return (angka * 9 / 5) + 32;
@@ -127,29 +127,30 @@ export default function Temp(){
     });
 
     return(
-            <Container>
-                <FormControl>
-                        <SimpleGrid columns={2} spacing={10}>
-                            <Box>
-                                <Input type="number" onChange={getFromValue}/>
-                                <Select placeholder="From" w="200px" onChange={getFrom}>
-                                    {item}
-                                </Select>
-                            </Box>
-                            <Box>
-                                <Input type="number" value={resultTemperature}/>
-                                <Select placeholder="To" w="200px" onChange={getTo}>
-                                    {item}
-                                </Select>
-                            </Box>
-                    </SimpleGrid>
-                </FormControl>
-                {/* <Router>
-                    <Button w="50%" h="70px" marginLeft="50%"><Link to="/">Home</Link></Button>
-                    <Switch>
-                        <Route path="/" component={App}/>
-                    </Switch>
-                </Router> */}
-            </Container>
+        <Container>
+            <Center><chakra.h1 fontSize="40px">Temperature</chakra.h1></Center>
+            <FormControl>
+                    <SimpleGrid columns={2} spacing={10}>
+                        <Box>
+                            <Input type="number" onChange={getFromValue}/>
+                            <Select placeholder="From" w="200px" onChange={getFrom}>
+                                {item}
+                            </Select>
+                        </Box>
+                        <Box>
+                            <Input type="number" value={resultTemperature}/>
+                            <Select placeholder="To" w="200px" onChange={getTo}>
+                                {item}
+                            </Select>
+                        </Box>
+                </SimpleGrid>
+            </FormControl>
+            {/* <Router>
+                <Button w="50%" h="70px" marginLeft="50%"><Link to="/">Home</Link></Button>
+                <Switch>
+                    <Route path="/" component={App}/>
+                </Switch>
+            </Router> */}
+        </Container>
     )
 }
